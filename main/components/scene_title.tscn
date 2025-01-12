@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c54ewej0okguv"]
+[gd_scene load_steps=3 format=3 uid="uid://c54ewej0okguv"]
 
+[ext_resource type="Script" path="res://main/components/scene_title.gd" id="1_lqcte"]
 [ext_resource type="Theme" uid="uid://pugwpqt6f0ap" path="res://main/themes/main.tres" id="1_wm12m"]
 
 [node name="scene_title" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lqcte")
 
 [node name="background" type="Panel" parent="."]
 layout_mode = 1
@@ -54,13 +56,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 120
 
-[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Button_Play" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_wm12m")
 text = "PLAY"
 
-[node name="Button2" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Button_Settings" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_wm12m")
 text = "SETTINGS"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]

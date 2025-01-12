@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://pugwpqt6f0ap"]
+
+[ext_resource type="FontFile" uid="uid://m7fttitxwnte" path="res://main/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_j333o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hypke"]
+bg_color = Color(0.85098, 0.87451, 0.827451, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.937255, 0.952941, 0.921569, 1)
+expand_margin_left = 40.0
+expand_margin_top = 20.0
+expand_margin_right = 40.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81xxf"]
+bg_color = Color(0.372549, 0.521569, 0.215686, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.937255, 0.952941, 0.921569, 1)
+expand_margin_left = 40.0
+expand_margin_top = 20.0
+expand_margin_right = 40.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k13e5"]
+bg_color = Color(0.937255, 0.952941, 0.921569, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.937255, 0.952941, 0.921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv31y"]
+bg_color = Color(0.498039, 0.698039, 0.286275, 1)
+
+[resource]
+default_font_size = 128
+Button/font_sizes/font_size = 128
+Button/fonts/font = ExtResource("1_j333o")
+Button/styles/hover = SubResource("StyleBoxFlat_hypke")
+Button/styles/normal = SubResource("StyleBoxFlat_81xxf")
+Button/styles/pressed = SubResource("StyleBoxFlat_k13e5")
+Label/fonts/font = ExtResource("1_j333o")
+Panel/styles/panel = SubResource("StyleBoxFlat_jv31y")

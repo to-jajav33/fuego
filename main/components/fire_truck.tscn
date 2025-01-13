@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbmktu1emlyon"]
+
+[ext_resource type="Texture2D" uid="uid://dd8tofvswds88" path="res://icon.svg" id="1_2f3go"]
+[ext_resource type="Script" path="res://main/components/fire_truck.gd" id="1_5quwo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgs3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2f3go")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6hyf"]
+
+[node name="fire_truck" type="RigidBody2D"]
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_5quwo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -51)
+sprite_frames = SubResource("SpriteFrames_mgs3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n6hyf")

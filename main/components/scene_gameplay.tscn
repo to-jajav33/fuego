@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bveounudm6us2"]
+[gd_scene load_steps=9 format=4 uid="uid://bveounudm6us2"]
 
 [ext_resource type="Texture2D" uid="uid://dt7gu0bjme5us" path="res://main/assets_2d/autotile_roads.svg" id="1_l5tpc"]
 [ext_resource type="Texture2D" uid="uid://dnva0pecm0wah" path="res://main/assets_2d/autotile_grass.svg" id="2_u5y7i"]
 [ext_resource type="PackedScene" uid="uid://cbmktu1emlyon" path="res://main/components/fire_truck.tscn" id="3_ux0ma"]
 [ext_resource type="PackedScene" uid="uid://dibywg3qj61ex" path="res://main/components/camera_2d_follow.tscn" id="4_6njui"]
+[ext_resource type="PackedScene" uid="uid://do2udmdntfvfc" path="res://main/components/building.tscn" id="5_rgro5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67eh7"]
 resource_name = "atlas_roads"
@@ -742,6 +743,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="gameplay" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Layer0" type="TileMapLayer" parent="gameplay"]
 use_parent_material = true
@@ -753,6 +755,24 @@ position = Vector2(2246, 1510)
 
 [node name="Camera2D_Follow" parent="gameplay" instance=ExtResource("4_6njui")]
 nodePathToFollow = NodePath("../fire_truck")
+
+[node name="building" parent="gameplay" instance=ExtResource("5_rgro5")]
+position = Vector2(3626, 1243)
+
+[node name="building2" parent="gameplay" instance=ExtResource("5_rgro5")]
+position = Vector2(3202, 1243)
+
+[node name="building3" parent="gameplay" instance=ExtResource("5_rgro5")]
+position = Vector2(2716, 1243)
+
+[node name="building4" parent="gameplay" instance=ExtResource("5_rgro5")]
+position = Vector2(3626, 468)
+
+[node name="building5" parent="gameplay" instance=ExtResource("5_rgro5")]
+position = Vector2(3202, 468)
+
+[node name="building6" parent="gameplay" instance=ExtResource("5_rgro5")]
+position = Vector2(2716, 468)
 
 [node name="gui" type="Control" parent="."]
 layout_mode = 1

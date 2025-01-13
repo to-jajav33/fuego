@@ -27,6 +27,10 @@ window/size/viewport_height=2268
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[global_group]
+
+group_area_building="buildings can catch on fire"
+
 [physics]
 
 2d/default_gravity_vector=Vector2(0, 0)

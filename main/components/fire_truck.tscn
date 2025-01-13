@@ -1,13 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbmktu1emlyon"]
+[gd_scene load_steps=7 format=3 uid="uid://cbmktu1emlyon"]
 
-[ext_resource type="Texture2D" uid="uid://dd8tofvswds88" path="res://icon.svg" id="1_2f3go"]
 [ext_resource type="Script" path="res://main/components/fire_truck.gd" id="1_5quwo"]
+[ext_resource type="Texture2D" uid="uid://4rmmwp3562df" path="res://main/assets_2d/firetruck_no_hose.svg" id="2_cv48h"]
+[ext_resource type="Texture2D" uid="uid://bh1h0l6hoiflq" path="res://main/assets_2d/hose.svg" id="3_7foqq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgs3l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_2f3go")
+"texture": ExtResource("2_cv48h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjlho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7foqq")
 }],
 "loop": true,
 "name": &"default",
@@ -17,13 +29,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6hyf"]
 
 [node name="fire_truck" type="RigidBody2D"]
+y_sort_enabled = true
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_5quwo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -51)
+[node name="firetruck" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -93)
 sprite_frames = SubResource("SpriteFrames_mgs3l")
+
+[node name="hoseRoot" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(117, -142)
+rotation = -0.235579
+
+[node name="hose" type="AnimatedSprite2D" parent="hoseRoot"]
+position = Vector2(-121, 49)
+sprite_frames = SubResource("SpriteFrames_gjlho")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n6hyf")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://do2udmdntfvfc"]
+
+[ext_resource type="Texture2D" uid="uid://dgv4gt4qy0u84" path="res://main/assets_2d/building 1.svg" id="1_7wi2l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_liimp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7wi2l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_litgn"]
+size = Vector2(191, 139)
+
+[node name="building" type="Area2D" groups=["group_area_building"]]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_liimp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 69.5)
+shape = SubResource("RectangleShape2D_litgn")

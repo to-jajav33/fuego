@@ -28,7 +28,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6hyf"]
 
-[node name="fire_truck" type="RigidBody2D"]
+[node name="fire_truck" type="RigidBody2D" groups=["group_body_firetruck"]]
 y_sort_enabled = true
 can_sleep = false
 lock_rotation = true

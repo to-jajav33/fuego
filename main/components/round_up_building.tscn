@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0r31rgy6ng5"]
+
+[ext_resource type="Script" path="res://round_up_building.gd" id="1_xh3br"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq3c1"]
+
+[node name="RoundUpBuilding" type="Area2D" groups=["group_area_round_up_building"]]
+monitoring = false
+monitorable = false
+script = ExtResource("1_xh3br")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bq3c1")

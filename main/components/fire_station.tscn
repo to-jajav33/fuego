@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://01804uh8xtwo"]
+
+[ext_resource type="Script" path="res://main/components/fire_station.gd" id="1_t3jvy"]
+[ext_resource type="Texture2D" uid="uid://dx5e1jydj0r1f" path="res://main/assets_2d/firestation.svg" id="1_v6bre"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43hcn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v6bre")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4fs7"]
+size = Vector2(240, 186)
+
+[node name="fire_station" type="Area2D" groups=["group_area_firestation"]]
+script = ExtResource("1_t3jvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_43hcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_i4fs7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

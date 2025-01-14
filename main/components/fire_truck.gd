@@ -20,15 +20,15 @@ func _input(_event: InputEvent):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if (self.inputState == INPUT_STATES.WATER):
+	var dir = Vector2.ZERO;
+	if (GameState.currState == GameState.STATES_AVAILABLE.PLAY_NO_ALARM or GameState.currState == GameState.STATES_AVAILABLE.PLAY_FIRE_ALARM):
 		var rotatDir = 0.0
-		if (Input.get_action_raw_strength("ui_left")):
+		if (Input.get_action_raw_strength("action_rotate_host_counterclockwise")):
 			rotatDir += -1.0;
-		if (Input.get_action_raw_strength("ui_right")):
+		if (Input.get_action_raw_strength("action_rotate_host_normalclockwise")):
 			rotatDir += 1.0;
 		$hoseRoot.rotate(lerpf(0.0, rotationSpeed * rotatDir, delta));
-	var dir = Vector2.ZERO;
-	if (self.inputState == INPUT_STATES.DRIVING):
+		
 		if (Input.get_action_raw_strength("ui_down")):
 			dir.y += 1
 		if (Input.get_action_raw_strength("ui_up")):
@@ -40,6 +40,7 @@ func _physics_process(delta):
 		
 		if (dir.x != 0.0 or dir.y != 0.0):
 			dir = dir.normalized();
+	
 	var targetVelocity = (dir * speed);
 	self.apply_central_force((targetVelocity - self.linear_velocity) / (delta * (self.accel + 1.0))); # hard stop
 	pass

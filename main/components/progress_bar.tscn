@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3is6hsk6bycw"]
+
+[ext_resource type="Texture2D" uid="uid://ty1ngyon51sd" path="res://main/assets_2d/bar-fire-mask.svg" id="1_no4rp"]
+[ext_resource type="Script" path="res://main/components/progress_bar.gd" id="1_y4oph"]
+[ext_resource type="Texture2D" uid="uid://b1pll00abwhnv" path="res://main/assets_2d/bar-fire.svg" id="2_hj1h5"]
+
+[sub_resource type="Animation" id="Animation_2fya6"]
+resource_name = "anim_progress"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mask:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(0, 240, 60, 240, 60, 240, 0, 240), PackedVector2Array(0, 0, 60, 0, 60, 240, 0, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_30q2g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mask:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(0, 240, 60, 240, 60, 240, 0, 240)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4e8mc"]
+_data = {
+"RESET": SubResource("Animation_30q2g"),
+"anim_progress": SubResource("Animation_2fya6")
+}
+
+[node name="progressBar" type="Node2D"]
+script = ExtResource("1_y4oph")
+
+[node name="mask" type="Polygon2D" parent="."]
+position = Vector2(-30, -120)
+texture = ExtResource("1_no4rp")
+polygon = PackedVector2Array(0, 0, 60, 0, 60, 240, 0, 240)
+
+[node name="decor" type="Sprite2D" parent="."]
+texture = ExtResource("2_hj1h5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_4e8mc")
+}

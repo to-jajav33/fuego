@@ -1,5 +1,7 @@
 extends Node
 
+signal signal_state_changed(paramState);
+
 const STATES_AVAILABLE = {
 	"MENUS": "MENUS",
 	"PLAY_NO_ALARM": "PLAY_NO_ALARM",
@@ -8,6 +10,7 @@ const STATES_AVAILABLE = {
 }
 var currState = STATES_AVAILABLE.MENUS;
 var buildingsOnFire = [];
+var currentFireAlarmTime = 10.0; # in seconds
 
 func addBuilding(paramBuilding):
 	print("adding building ", paramBuilding);
@@ -24,6 +27,7 @@ func removeBuilding(paramBuilding):
 func changeState(paramState):
 	print("change state to ", paramState);
 	self.currState = paramState;
+	self.signal_state_changed.emit(paramState);
 	return;
 
 func createFireAlarm():
@@ -44,6 +48,5 @@ func createFireAlarm():
 		tween.tween_property(camera, "nodePathToFollow", camera.get_path_to(roundUpBuilding), 3.0);
 		tween.tween_property(camera, "nodePathToFollow", camera.get_path_to(fireTruck), 3.0);
 		tween.tween_callback(self.changeState.bind(self.STATES_AVAILABLE.PLAY_FIRE_ALARM));
-		
 		tween.play();
 	return;

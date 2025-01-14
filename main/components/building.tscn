@@ -30,13 +30,12 @@ sprite_frames = SubResource("SpriteFrames_liimp")
 position = Vector2(1.5, 69.5)
 shape = SubResource("RectangleShape2D_litgn")
 
-[node name="Bar-container2" type="Sprite2D" parent="."]
+[node name="progressBarContainer" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(228, -29)
 texture = ExtResource("3_lknme")
 
-[node name="progressBar" parent="Bar-container2" instance=ExtResource("3_3pnsq")]
+[node name="progressBar" parent="progressBarContainer" instance=ExtResource("3_3pnsq")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
-
-[editable path="Bar-container2/progressBar"]

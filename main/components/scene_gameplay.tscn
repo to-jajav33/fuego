@@ -755,7 +755,7 @@ tile_map_data = PackedByteArray("AAAFAAAAAgAKAAAAAAAFAAEAAgAJAAIAAAAFAAIAAgAJAAI
 tile_set = SubResource("TileSet_wr0y6")
 
 [node name="fire_truck" parent="gameplay" instance=ExtResource("3_ux0ma")]
-position = Vector2(2246, 1510)
+position = Vector2(5451, 739)
 
 [node name="Camera2D_Follow" parent="gameplay" instance=ExtResource("4_6njui")]
 nodePathToFollow = NodePath("../fire_truck")

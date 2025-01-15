@@ -11,7 +11,16 @@ var playHeadPosition = 0;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var pos = min(1.0, max(self.playHeadPosition, 0.0));
-	$AnimationPlayer.current_animation = "anim_progress";
-	$AnimationPlayer.seek(pos * $AnimationPlayer.current_animation_length);
 	pass
+
+func changePlayHeadPosition(paramPos):
+	self.playHeadPosition = paramPos;
+	print("playhead ", self.playHeadPosition);
+	var pos = min(1.0, max(self.playHeadPosition, 0.0));
+	$AnimationPlayer.active = true;
+	$AnimationPlayer.current_animation = "anim_progress";
+	var shouldUpdate = true;
+	$AnimationPlayer.seek(pos * $AnimationPlayer.current_animation_length, shouldUpdate);
+	var shouldKeepState = true;
+	$AnimationPlayer.stop(shouldKeepState);
+	return;

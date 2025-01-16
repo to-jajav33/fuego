@@ -8,11 +8,6 @@ const TYPES_AVAILABLE = {
 var progressType = TYPES_AVAILABLE.FIRE;
 var playHeadPosition = 0;
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func changePlayHeadPosition(paramPos):
 	self.playHeadPosition = paramPos;
 	var pos = min(1.0, max(self.playHeadPosition, 0.0));

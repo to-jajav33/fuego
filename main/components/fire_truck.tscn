@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbmktu1emlyon"]
+[gd_scene load_steps=12 format=3 uid="uid://cbmktu1emlyon"]
 
 [ext_resource type="Script" path="res://main/components/fire_truck.gd" id="1_5quwo"]
 [ext_resource type="Texture2D" uid="uid://4rmmwp3562df" path="res://main/assets_2d/firetruck_no_hose.svg" id="2_cv48h"]
@@ -34,6 +34,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6hyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfkng"]
+size = Vector2(189, 128)
 
 [node name="fire_truck" type="RigidBody2D" groups=["group_body_firetruck"]]
 y_sort_enabled = true
@@ -72,3 +75,12 @@ spawnRateMin = 0.08
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n6hyf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -54)
+shape = SubResource("RectangleShape2D_gfkng")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

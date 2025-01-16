@@ -7,6 +7,7 @@ extends RigidBody2D
 
 var rotationSpeed = 2.0
 var waterInTank = 100.0;
+var isFillingWater = false;
 
 const INPUT_STATES = {
 	"DRIVING": "DRIVING",
@@ -24,6 +25,9 @@ func _input(_event: InputEvent):
 	return;
 
 func _process(delta):
+	if (self.isFillingWater == true):
+		self.waterInTank += delta;
+		self.progress_bar.changePlayHeadPosition(self.waterInTank / 100.0);
 	if (self.cpu_particles_2d.emitting):
 		if (self.waterInTank > 0.0):
 			self.waterInTank -= delta;
@@ -60,3 +64,15 @@ func _physics_process(delta):
 	var targetVelocity = (dir * speed);
 	self.apply_central_force((targetVelocity - self.linear_velocity) / (delta * (self.accel + 1.0))); # hard stop
 	pass
+
+
+func _on_area_2d_area_entered(area):
+	if (area.is_in_group("group_area_firestation")):
+		self.isFillingWater = true;
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area):
+	if (area.is_in_group("group_area_firestation")):
+		self.isFillingWater = false;
+	pass # Replace with function body.

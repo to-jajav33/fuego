@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbmktu1emlyon"]
+[gd_scene load_steps=11 format=3 uid="uid://cbmktu1emlyon"]
 
 [ext_resource type="Script" path="res://main/components/fire_truck.gd" id="1_5quwo"]
 [ext_resource type="Texture2D" uid="uid://4rmmwp3562df" path="res://main/assets_2d/firetruck_no_hose.svg" id="2_cv48h"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dtebwdq3njcto" path="res://main/assets_2d/waterDroplet.svg" id="4_xifpm"]
 [ext_resource type="PackedScene" uid="uid://buhej3nlsml4e" path="res://main/components/fake_sprite_particle_2d.tscn" id="5_4i00f"]
 [ext_resource type="PackedScene" uid="uid://c3is6hsk6bycw" path="res://main/components/progress_bar.tscn" id="5_vwjiy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sdhf5"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgs3l"]
 animations = [{
@@ -33,6 +37,7 @@ animations = [{
 
 [node name="fire_truck" type="RigidBody2D" groups=["group_body_firetruck"]]
 y_sort_enabled = true
+physics_material_override = SubResource("PhysicsMaterial_sdhf5")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_5quwo")

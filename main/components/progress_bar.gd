@@ -15,10 +15,9 @@ func _process(_delta):
 
 func changePlayHeadPosition(paramPos):
 	self.playHeadPosition = paramPos;
-	print("playhead ", self.playHeadPosition);
 	var pos = min(1.0, max(self.playHeadPosition, 0.0));
-	$AnimationPlayer.active = true;
 	$AnimationPlayer.current_animation = "anim_progress";
+	$AnimationPlayer.active = true;
 	var shouldUpdate = true;
 	$AnimationPlayer.seek(pos * $AnimationPlayer.current_animation_length, shouldUpdate);
 	var shouldKeepState = true;

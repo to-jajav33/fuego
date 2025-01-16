@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbmktu1emlyon"]
+[gd_scene load_steps=10 format=3 uid="uid://cbmktu1emlyon"]
 
 [ext_resource type="Script" path="res://main/components/fire_truck.gd" id="1_5quwo"]
 [ext_resource type="Texture2D" uid="uid://4rmmwp3562df" path="res://main/assets_2d/firetruck_no_hose.svg" id="2_cv48h"]
 [ext_resource type="Texture2D" uid="uid://bh1h0l6hoiflq" path="res://main/assets_2d/hose.svg" id="3_7foqq"]
+[ext_resource type="Texture2D" uid="uid://dtebwdq3njcto" path="res://main/assets_2d/waterDroplet.svg" id="4_xifpm"]
+[ext_resource type="PackedScene" uid="uid://buhej3nlsml4e" path="res://main/components/fake_sprite_particle_2d.tscn" id="5_4i00f"]
+[ext_resource type="PackedScene" uid="uid://c3is6hsk6bycw" path="res://main/components/progress_bar.tscn" id="5_vwjiy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgs3l"]
 animations = [{
@@ -34,6 +37,9 @@ can_sleep = false
 lock_rotation = true
 script = ExtResource("1_5quwo")
 
+[node name="progressBar" parent="." instance=ExtResource("5_vwjiy")]
+position = Vector2(213, -135)
+
 [node name="firetruck" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -93)
 sprite_frames = SubResource("SpriteFrames_mgs3l")
@@ -41,11 +47,23 @@ sprite_frames = SubResource("SpriteFrames_mgs3l")
 [node name="hoseRoot" type="Node2D" parent="."]
 z_index = 1
 position = Vector2(117, -142)
-rotation = -0.235579
 
 [node name="hose" type="AnimatedSprite2D" parent="hoseRoot"]
 position = Vector2(-121, 49)
 sprite_frames = SubResource("SpriteFrames_gjlho")
+
+[node name="nozzle" type="Node2D" parent="hoseRoot"]
+position = Vector2(-68, -6.45873)
+
+[node name="fakeSpriteParticle2D" parent="hoseRoot/nozzle" instance=ExtResource("5_4i00f")]
+rotation = 1.5708
+texture = ExtResource("4_xifpm")
+maxVel = Vector2(-500, 50)
+minVel = Vector2(-500, -50)
+maxNumberOfSprites = 20
+maxLifeSpanSeconds = 0.5
+spawnRateMax = 0.08
+spawnRateMin = 0.08
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n6hyf")

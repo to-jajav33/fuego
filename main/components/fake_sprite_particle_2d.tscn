@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buhej3nlsml4e"]
+
+[ext_resource type="Script" path="res://main/components/fake_sprite_particle_2d.gd" id="1_uy2gm"]
+
+[node name="fakeSpriteParticle2D" type="Node2D"]
+script = ExtResource("1_uy2gm")

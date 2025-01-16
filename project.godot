@@ -35,6 +35,7 @@ group_area_firestation="group for all firestations"
 group_body_firetruck=""
 group_area_round_up_building=""
 group_node2d_cameraFollow=""
+group_layer_bullet=""
 
 [input]
 

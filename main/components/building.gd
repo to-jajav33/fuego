@@ -16,8 +16,11 @@ func _ready():
 
 func _process(delta):
 	if (self.isOnFire):
-		self.totalHealth -= delta;
-		self.updateLabelTimeLeft();
+		if (totalHealth >= 100.0):
+			self.onFireIsPutOut();
+		else:
+			self.totalHealth -= delta;
+			self.updateLabelTimeLeft();
 	return;
 
 func handleStateChanged(paramState):
@@ -46,10 +49,17 @@ func onFire(startHealth = self.totalHealth):
 	self.updateLabelTimeLeft();
 	return;
 
+func onFireIsPutOut():
+	self.isOnFire = false;
+	self.totalHealth = 100.0;
+	self.updateLabelTimeLeft();
+	return;
+
 func onAddWater(paramAmount = 10.0):
 	if (self.totalHealth > 0.0):
 		self.totalHealth += paramAmount;
 		self.updateLabelTimeLeft();
+		self.progress_bar_container.hide();
 	return;
 
 func updateLabelTimeLeft():

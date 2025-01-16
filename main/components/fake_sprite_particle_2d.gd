@@ -2,6 +2,7 @@
 extends Node2D
 
 signal signal_sprite_removed(global_pos);
+signal signal_sprite_spawned();
 
 @export var texture: Texture2D;
 @export var emitting := false;
@@ -45,6 +46,7 @@ func spawnSprite():
 		kBody.velocity = vel.length() * Vector2.from_angle(self.global_rotation + vel.angle() - (PI * 0.5)).normalized();
 		layer.add_child(kBody);
 		var timer = get_tree().create_timer(randf_range(self.minLifeSpanSeconds, self.maxLifeSpanSeconds));
+		self.signal_sprite_spawned.emit();
 		await timer.timeout;
 		self.removeSprite(kBody);
 	return;

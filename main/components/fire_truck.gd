@@ -5,8 +5,10 @@ extends RigidBody2D
 @onready var cpu_particles_2d = $hoseRoot/nozzle/fakeSpriteParticle2D
 @onready var progress_bar = $progressBar;
 
+var maxWaterDroplets = 200.0;
+@onready var currentWaterDroplets = maxWaterDroplets
+@onready var waterInTank = 100.0;
 var rotationSpeed = 2.0
-var waterInTank = 100.0;
 var isFillingWater = false;
 
 const INPUT_STATES = {
@@ -14,6 +16,10 @@ const INPUT_STATES = {
 	"WATER": "WATER"
 }
 var inputState = INPUT_STATES.DRIVING;
+
+func _ready():
+	self.cpu_particles_2d.signal_sprite_spawned.connect(_on_signal_signal_sprite_spawned);
+	return;
 
 func _input(_event: InputEvent):
 	if (Input.get_action_strength("ui_accept") and self.waterInTank > 0.0):
@@ -25,17 +31,19 @@ func _input(_event: InputEvent):
 	return;
 
 func _process(delta):
-	if (self.isFillingWater == true):
-		self.waterInTank += delta;
-		self.progress_bar.changePlayHeadPosition(self.waterInTank / 100.0);
+	if (self.isFillingWater == true and self.currentWaterDroplets < self.maxWaterDroplets):
+		self.currentWaterDroplets += 1;
+	self.waterInTank = (self.currentWaterDroplets / self.maxWaterDroplets) * 100.0;
+	
 	if (self.cpu_particles_2d.emitting):
 		if (self.waterInTank > 0.0):
-			self.waterInTank -= delta;
 			self.progress_bar.changePlayHeadPosition(self.waterInTank / 100.0);
 		else:
 			self.waterInTank = 0.0;
 			self.progress_bar.changePlayHeadPosition(self.waterInTank / 100.0);
 			self.cpu_particles_2d.emitting = false;
+	elif (self.isFillingWater == true):
+		self.progress_bar.changePlayHeadPosition(self.waterInTank / 100.0);
 	return;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,3 +84,7 @@ func _on_area_2d_area_exited(area):
 	if (area.is_in_group("group_area_firestation")):
 		self.isFillingWater = false;
 	pass # Replace with function body.
+
+func _on_signal_signal_sprite_spawned():
+	self.currentWaterDroplets -= 1;
+	return;

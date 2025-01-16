@@ -34,6 +34,9 @@ func _on_area_entered(area):
 		self.isSelectedToBeOnFire = true;
 		self.totalHealth = randf_range(20.0, 100.0);
 		self.updateLabelTimeLeft();
+	
+	if (self.isOnFire and area.get_parent().get_parent().is_in_group("group_layer_bullet")):
+		self.onAddWater(2.0);
 	pass # Replace with function body.
 
 
@@ -53,13 +56,16 @@ func onFireIsPutOut():
 	self.isOnFire = false;
 	self.totalHealth = 100.0;
 	self.updateLabelTimeLeft();
+	self.progress_bar_container.hide();
 	return;
 
 func onAddWater(paramAmount = 10.0):
 	if (self.totalHealth > 0.0):
+		print("add water")
 		self.totalHealth += paramAmount;
 		self.updateLabelTimeLeft();
-		self.progress_bar_container.hide();
+		if (totalHealth >= 100.0):
+			self.onFireIsPutOut();
 	return;
 
 func updateLabelTimeLeft():
@@ -67,4 +73,3 @@ func updateLabelTimeLeft():
 	self.label_time_left.text = str(ceil(self.totalHealth));
 	self.progress_bar.changePlayHeadPosition(min(100.0, max(0.0, self.totalHealth / 100.0)));
 	return;
-	

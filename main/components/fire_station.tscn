@@ -18,6 +18,7 @@ animations = [{
 size = Vector2(240, 186)
 
 [node name="fire_station" type="Area2D" groups=["group_area_firestation"]]
+position = Vector2(0, -118)
 script = ExtResource("1_t3jvy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

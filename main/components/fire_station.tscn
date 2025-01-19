@@ -18,14 +18,14 @@ animations = [{
 size = Vector2(240, 186)
 
 [node name="fire_station" type="Area2D" groups=["group_area_firestation"]]
-position = Vector2(0, -118)
 script = ExtResource("1_t3jvy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_43hcn")
+offset = Vector2(0, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 22)
+position = Vector2(0, -95)
 shape = SubResource("RectangleShape2D_i4fs7")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

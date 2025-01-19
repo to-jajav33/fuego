@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3ogjpb0pklw6"]
+
+[ext_resource type="Script" path="res://main/components/car.gd" id="1_igqo1"]
+[ext_resource type="Texture2D" uid="uid://dd8tofvswds88" path="res://icon.svg" id="1_mpiqj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7e85e"]
+friction = 0.0
+bounce = 0.96
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egq1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mpiqj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38t12"]
+radius = 60.0333
+
+[node name="Car" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_7e85e")
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_igqo1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -60)
+sprite_frames = SubResource("SpriteFrames_egq1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -58)
+shape = SubResource("CircleShape2D_38t12")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 100.0

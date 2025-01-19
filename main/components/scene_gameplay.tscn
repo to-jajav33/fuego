@@ -781,6 +781,102 @@ position = Vector2(3202, 468)
 [node name="building6" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
 position = Vector2(2716, 468)
 
+[node name="building7" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(2716, 2203)
+
+[node name="building8" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(3565, 1706)
+
+[node name="building9" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(1013, 1677)
+
+[node name="building10" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(1862, 2175)
+
+[node name="building11" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(3509, 3403)
+
+[node name="building12" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(3509, 2842)
+
+[node name="building13" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(5944, 2842)
+
+[node name="building14" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(4609, 2842)
+
+[node name="building15" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(4609, 3403)
+
+[node name="building16" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(5944, 3403)
+
+[node name="building17" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(5351, 3403)
+
+[node name="building18" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(2546, 4289)
+
+[node name="building19" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(3135, 4289)
+
+[node name="building20" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(3696, 4289)
+
+[node name="building21" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7169, 4289)
+
+[node name="building22" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7758, 4289)
+
+[node name="building23" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(8319, 4289)
+
+[node name="building24" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(4807, 1962)
+
+[node name="building25" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(5396, 1962)
+
+[node name="building26" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(5957, 1962)
+
+[node name="building27" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7155, 619)
+
+[node name="building28" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7744, 619)
+
+[node name="building29" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(8305, 619)
+
+[node name="building30" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7155, 1083)
+
+[node name="building31" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(8305, 1083)
+
+[node name="building32" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(2703, 3100)
+
+[node name="building33" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7153, 3104)
+
+[node name="building34" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(8369, 3104)
+
+[node name="building35" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(4691, 4265)
+
+[node name="building36" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(7171, 1962)
+
+[node name="building37" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(8305, 1962)
+
+[node name="building38" parent="gameplay/YSORT" instance=ExtResource("5_rgro5")]
+position = Vector2(9708, 1962)
+
 [node name="fire_station" parent="gameplay/YSORT" instance=ExtResource("6_ikq0o")]
 position = Vector2(5437, 1054)
 

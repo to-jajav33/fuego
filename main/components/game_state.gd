@@ -36,7 +36,9 @@ func createFireAlarm():
 		var buildings = get_tree().get_nodes_in_group("group_area_building");
 		var singleBuilding = buildings.pick_random();
 		var roundUpBuilding = get_tree().get_nodes_in_group("group_area_round_up_building")[0];
+		roundUpBuilding.changeShapeSizeTo(1);
 		roundUpBuilding.global_position = singleBuilding.global_position;
+		roundUpBuilding.changeShapeSizeTo(randi_range(1, 35));
 		
 		roundUpBuilding.set_deferred("monitoring", true);
 		roundUpBuilding.set_deferred("monitorable", true);

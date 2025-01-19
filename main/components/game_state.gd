@@ -22,6 +22,12 @@ func removeBuilding(paramBuilding):
 	print("remove building ", paramBuilding);
 	if (self.buildingsOnFire.has(paramBuilding)):
 		self.buildingsOnFire.erase(paramBuilding);
+	
+	if (self.buildingsOnFire.size() <= 0):
+		var roundUpBuilding = get_tree().get_nodes_in_group("group_area_round_up_building")[0];
+		roundUpBuilding.changeShapeSizeTo(1);
+		roundUpBuilding.global_position = Vector2.ONE * -1000.0;
+		self.changeState(STATES_AVAILABLE.PLAY_NO_ALARM);
 	return;
 
 func changeState(paramState):

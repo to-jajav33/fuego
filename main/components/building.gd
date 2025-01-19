@@ -4,7 +4,6 @@ extends Area2D
 @onready var progress_bar = $progressBarContainer/progressBar
 @onready var label_time_left = $Label_time_left
 
-var totalTimeOnFire = 1.0;
 var isOnFire = false;
 var isSelectedToBeOnFire = false;
 var totalHealth = 100.0;
@@ -41,9 +40,6 @@ func _on_area_entered(area):
 
 
 func _on_area_exited(area):
-	if (area.is_in_group("group_area_round_up_building")):
-		GameState.removeBuilding(self);
-		self.isSelectedToBeOnFire = false;
 	pass # Replace with function body.
 
 func onFire(startHealth = self.totalHealth):
@@ -56,11 +52,14 @@ func onFireIsPutOut():
 	self.isOnFire = false;
 	self.totalHealth = 100.0;
 	self.updateLabelTimeLeft();
+	self.label_time_left.hide();
 	self.progress_bar_container.hide();
+	self.isSelectedToBeOnFire = false;
+	GameState.removeBuilding(self);
 	return;
 
 func onAddWater(paramAmount = 10.0):
-	if (self.totalHealth > 0.0):
+	if (self.isOnFire and self.totalHealth > 0.0):
 		print("add water")
 		self.totalHealth += paramAmount;
 		self.updateLabelTimeLeft();
@@ -70,6 +69,7 @@ func onAddWater(paramAmount = 10.0):
 
 func updateLabelTimeLeft():
 	self.progress_bar_container.show();
+	self.label_time_left.show();
 	self.label_time_left.text = str(ceil(self.totalHealth));
 	self.progress_bar.changePlayHeadPosition(min(100.0, max(0.0, self.totalHealth / 100.0)));
 	return;
